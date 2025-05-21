@@ -1,2 +1,22 @@
-<p [ngStyle]="{'background-color': color}">Aqui mostraremos el detalle del producto: {{producto}}</p>
-<p>Este producto es de color {{color}}</p>
+<ng-container *ngIf="!loading">
+  <p>Información detallada.</p>
+  <p [ngClass]="{'red': producto?.id }">
+    <span class="fw-bold">ID:</span> {{ producto?.id }}
+  ID: {{ producto?.id }}
+</p>
+  <p>Producto: {{ producto?.name | titlecase }}</p>
+  <p *ngIf="producto?.description">Descripción: {{ producto?.description | titlecase }}</p>
+  <p>Tecnologías: {{ producto?.tecnology }}</p>
+  <div *ngIf="producto">
+  <p [ngClass]="{'redColor': producto.salary < 22000 }">
+    Salario: {{ producto.salary | currency:'EUR' }}
+  </p>
+</div>
+
+<ng-container *ngIf="loading">
+  <div class="d-flex justify-content-center mt-5">
+    <div class="spinner-border text-warning" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+</ng-container>

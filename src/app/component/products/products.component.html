@@ -6,27 +6,18 @@
       <th scope="col">#</th>
       <th scope="col">Nombre</th>
       <th scope="col">Tecnologia</th>
+      <th scope="col">Descripcion</th>
       <th scope="col">Detalle</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Log Your Climbs</td>
-      <td>Kotlin y SQLite</td>
-      <td><button type="button" class="btn btn-outline-info btn-sm" [routerLink]="['/products', 'red', 'LogYourClimb']">Detalle</button></td>
+    <tr *ngFor="let product of productsList">
+      <th scope="row">{{product.id}}</th>
+      <td>{{product.name}}</td>
+      <td>{{product.tecnology}}</td>
+      <td>{{product.description}}</td>
+      <td><button type="button" class="btn btn-outline-success btn-sm" [routerLink]="['/products', product.id]">Detalle</button></td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Registro Horario</td>
-      <td>.Net Core 8 (C# y Blazor)</td>
-      <td><button type="button" class="btn btn-outline-info btn-sm" [routerLink]="['/products', 'yellow', 'RegistroHorario']">Detalle</button></td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>DiskPartition</td>
-      <td>.net WF</td>
-      <td><button type="button" class="btn btn-outline-info btn-sm" [routerLink]="['/products', 'blue', 'DiskPartition']">Detalle</button></td>
-    </tr>
+  
   </tbody>
 </table>

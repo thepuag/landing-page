@@ -6,7 +6,7 @@ import { ContactComponent } from './component/contact/contact.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, ProductDetailComponent, ProductsComponent, ContactComponent, RouterLink],
+  imports: [RouterOutlet, RouterLink],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

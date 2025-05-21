@@ -1,26 +1,30 @@
-import { NgStyle } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component,  OnInit} from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-
+import { Product, productsList } from '../products/products.mock';
 @Component({
   selector: 'app-product-detail',
-  imports: [NgStyle],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './product-detail.component.html',
-  styleUrl: './product-detail.component.css'
+  styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent implements OnInit {
   
-  producto: string = '';
-  color: string = '';
+  producto?: Product;
+  productList: Product[] = productsList;
+  loading: boolean = true;
 
   constructor(private _route: ActivatedRoute) {}
 
   ngOnInit(): void {    
-    this._route.params.subscribe(params => {
-      alert(params['productId']);
-      this.producto = params['productId'];
-      this.color = params['category'];
-  });
- }
-
+    setTimeout(() => {  
+      this._route.params.subscribe(params => {
+      //alert(params['productId']);
+      this.producto = this.productList.find(product => product.id == params['productId']);
+      this.loading = false;
+    });
+    }
+    , 500);
+  }
 }
