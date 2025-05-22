@@ -1,0 +1,17 @@
+export const TEXTS = {
+    SEND: 'Enviar',
+    NAME: 'Nombre',
+    EMAIL: 'Correo',
+    MESSAGE: 'Mensaje',
+    NAME_PLACEHOLDER: 'Escribe tu nombre',
+    EMAIL_PLACEHOLDER: 'Escribe tu correo',
+    MESSAGE_PLACEHOLDER: 'Escribe tu mensaje',
+    REQUIRED_FORM: 'Campo requerido',
+    EMAIL_INVALID: 'El correo no es válido',
+    HOME: 'Inicio',
+    ABOUT: 'Sobre mí',
+    PROJECTS: 'Proyectos',
+    CONTACT: 'Contacto',
+    HEADER: 'Noé Dev',
+    MINLENGTH_FORM: 'Mínimo 3 caracteres',
+}

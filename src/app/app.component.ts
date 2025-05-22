@@ -1,8 +1,6 @@
+import { TEXTS } from './resources/texts';
 import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { ProductDetailComponent } from './component/product-detail/product-detail.component';
-import { ProductsComponent } from './component/products/products.component';
-import { ContactComponent } from './component/contact/contact.component';
 
 @Component({
   selector: 'app-root',
@@ -11,5 +9,7 @@ import { ContactComponent } from './component/contact/contact.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+
+  TEXTS = TEXTS;
   title = 'landing-page';
 }
