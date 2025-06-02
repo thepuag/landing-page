@@ -1,0 +1,21 @@
+<label for="telefono" class="form-label"
+  >{{ TEXTS.PHONENUM }} : {{ tipoTelefono }}</label
+>
+<input
+  [ngClass]="{
+    'is-invalid':
+      hasErrors('telefono', 'required') || hasErrors('telefono', 'minlength')
+  }"
+  type="text"
+  class="form-control"
+  id="telefono"
+  formControlName="telefono"
+  (keypress)="
+    onlyNumbers($event)"
+/>
+<div class="text-danger" *ngIf="hasErrors('telefono', 'required')">
+  {{ TEXTS.REQUIRED_FORM }}
+</div>
+<div class="text-danger" *ngIf="hasErrors('telefono', 'minlength')">
+  {{ TEXTS.MINLENGTH_FORM }}
+</div>

@@ -13,20 +13,111 @@
     </form>
 </div> -->
 <div class="container">
-    <p>Formulario tipo reactivo</p>
-    <form [formGroup]="formularioReactivo" (ngSubmit)="enviarFormularioReactivo()">
-      <div class="mb-3">
-        <label for="nombre" class="form-label">{{TEXTS.NAME}}</label>
-        <input [ngClass]="{'is-invalid':hasErrors('nombre','required') || hasErrors('nombre', 'minlength')}" type="text" class="form-control" id="nombre" formControlName="nombre" >
-        <div class="text-danger" *ngIf="hasErrors('nombre', 'required')"> {{TEXTS.REQUIRED_FORM}} </div>
-        <div class="text-danger" *ngIf="hasErrors('nombre', 'minlength')"> {{TEXTS.MINLENGTH_FORM}} </div>
+  <p>Formulario tipo reactivo</p>
+  <form
+    [formGroup]="formularioReactivo"
+    (ngSubmit)="enviarFormularioReactivo()"
+  >
+    <div class="mb-3">
+      <label for="nombre" class="form-label">{{ TEXTS.NAME }}</label>
+      <input
+        [ngClass]="{
+          'is-invalid':
+            hasErrors('nombre', 'required') || hasErrors('nombre', 'minlength')
+        }"
+        type="text"
+        class="form-control"
+        id="nombre"
+        formControlName="nombre"
+      />
+      <div class="text-danger" *ngIf="hasErrors('nombre', 'required')">
+        {{ TEXTS.REQUIRED_FORM }}
       </div>
-      <div class="mb-3">
-        <label for="correo" class="form-label">{{TEXTS.EMAIL}}</label>
-        <input [ngClass]="{'is-invalid':hasErrors('correo','required') || hasErrors('correo','email')}" type="email" class="form-control" id="correo" formControlName="correo" >
-        <div class="text-danger" *ngIf="hasErrors('correo','email')"> {{TEXTS.EMAIL_INVALID}} </div>
-        <div class="text-danger" *ngIf="hasErrors('correo','required')"> {{TEXTS.REQUIRED_FORM}} </div>
+      <div class="text-danger" *ngIf="hasErrors('nombre', 'minlength')">
+        {{ TEXTS.MINLENGTH_FORM }}
       </div>
-      <button type="submit" class="btn btn-outline-success btn-sm">{{TEXTS.SEND}}</button>
-    </form>
+    </div>
+
+    <div class="mb-3">
+      <label for="apellido" class="form-label">{{ TEXTS.LASTNAME }}</label>
+      <input
+        [ngClass]="{
+          'is-invalid':
+            hasErrors('apellido', 'required') ||
+            hasErrors('apellido', 'minlength')
+        }"
+        type="text"
+        class="form-control"
+        id="apellido"
+        formControlName="apellido"
+      />
+      <div class="text-danger" *ngIf="hasErrors('apellido', 'required')">
+        {{ TEXTS.REQUIRED_FORM }}
+      </div>
+      <div class="text-danger" *ngIf="hasErrors('apellido', 'minlength')">
+        {{ TEXTS.MINLENGTH_FORM }}
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="tipoTelefono" class="form-label">{{ TEXTS.PHONETYPE }}</label>
+      <select
+        class="form-select"
+        id="tipoTelefono"
+        formControlName="tipoTelefono"
+      >
+        <option value="Fijo">Fijo</option>
+        <option value="Movil">Movil</option>
+        <option value="loquesea">loquesea</option>
+      </select>
+    </div>
+
+    <div class="mb-3" *ngIf="mostrarDni">
+      <dni-input />
+      <label for="telefono" class="form-label"
+        >{{ TEXTS.PHONENUM }} : {{ tipoTelefono }}</label
+      >
+      <input
+        [ngClass]="{
+          'is-invalid':
+            hasErrors('telefono', 'required') ||
+            hasErrors('telefono', 'minlength')
+        }"
+        type="text"
+        class="form-control"
+        id="telefono"
+        formControlName="telefono"
+      />
+      <div class="text-danger" *ngIf="hasErrors('telefono', 'required')">
+        {{ TEXTS.REQUIRED_FORM }}
+      </div>
+      <div class="text-danger" *ngIf="hasErrors('telefono', 'minlength')">
+        {{ TEXTS.MINLENGTH_FORM }}
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="correo" class="form-label">{{ TEXTS.EMAIL }}</label>
+      <input
+        [ngClass]="{
+          'is-invalid':
+            hasErrors('correo', 'required') || hasErrors('correo', 'email')
+        }"
+        type="email"
+        class="form-control"
+        id="correo"
+        formControlName="correo"
+      />
+
+      <div class="text-danger" *ngIf="hasErrors('correo', 'email')">
+        {{ TEXTS.EMAIL_INVALID }}
+      </div>
+      <div class="text-danger" *ngIf="hasErrors('correo', 'required')">
+        {{ TEXTS.REQUIRED_FORM }}
+      </div>
+    </div>
+    <button type="submit" class="btn btn-outline-success btn-sm">
+      {{ TEXTS.SEND }}
+    </button>
+  </form>
 </div>
