@@ -1,9 +1,10 @@
 <ng-container *ngIf="!loading">
   <p>Información detallada.</p>
+  <img [src]="producto?.imageUrl" alt="Imagen del producto" class="img-title mb-3">
   <p [ngClass]="{'red': producto?.id }">
     <span class="fw-bold">ID:</span> {{ producto?.id }}
   ID: {{ producto?.id }}
-</p>
+  </p>
   <p>Producto: {{ producto?.name | titlecase }}</p>
   <p *ngIf="producto?.description">Descripción: {{ producto?.description | titlecase }}</p>
   <p>Tecnologías: {{ producto?.tecnology }}</p>

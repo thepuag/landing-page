@@ -11,11 +11,11 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let product of productsList">
+    <tr *ngFor="let product of productsDB">
       <th scope="row">{{product.id}}</th>
-      <td>{{product.name}}</td>
-      <td>{{product.tecnology}}</td>
-      <td>{{product.description}}</td>
+      <td>{{product.nombre}}</td>
+      <td>{{product.precio}}</td>
+      <td>{{product.descripcion}}</td>
       <td><button type="button" class="btn btn-outline-success btn-sm" [routerLink]="['/products', product.id]">Detalle</button></td>
     </tr>
   
