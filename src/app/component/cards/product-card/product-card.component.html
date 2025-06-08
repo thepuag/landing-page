@@ -1,1 +1,19 @@
-<p>product-card works!</p>
+<div class="flip-card" [routerLink]="['/products', product.id]">
+    
+  <div class="flip-card-inner">
+    <div class="flip-card-front">      
+      <h3 >{{ product.nombre }}</h3>
+      <img  class="card-image" [src]="product.urlImg" alt="{{ product.nombre }}" />   
+      
+        <label >{{TEXTS.TECNOLOGIES}}</label>
+        <span >{{ product.precio }}</span>
+    </div>
+    <div class="flip-card-back">
+<h3>{{TEXTS.HOME}}</h3>
+<h3>{{product.descripcion}}</h3>
+
+    </div>
+    
+  </div>         
+  
+</div>

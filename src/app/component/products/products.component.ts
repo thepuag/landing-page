@@ -5,11 +5,12 @@ import { NgFor } from '@angular/common';
 import { ApiService } from '../../services/api.service';
 import { IProduct } from '../../models/product.model';
 import { HttpClient } from '@angular/common/http';
+import { ProductCardComponent } from "../cards/product-card/product-card.component";
 
 
 @Component({
   selector: 'app-products',
-  imports: [RouterModule, NgFor],
+  imports: [RouterModule, NgFor, ProductCardComponent],
   templateUrl: './products.component.html',
   styleUrl: './products.component.css'
 })

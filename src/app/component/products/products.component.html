@@ -1,23 +1,18 @@
 <h1>Proyectos</h1>
 
-<table class="table table-bordered border-primary">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">Tecnologia</th>
-      <th scope="col">Descripcion</th>
-      <th scope="col">Detalle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let product of productsDB">
-      <th scope="row">{{product.id}}</th>
-      <td>{{product.nombre}}</td>
-      <td>{{product.precio}}</td>
-      <td>{{product.descripcion}}</td>
-      <td><button type="button" class="btn btn-outline-success btn-sm" [routerLink]="['/products', product.id]">Detalle</button></td>
-    </tr>
+
+<div class="products-container">
+  <h1 class="page-title">Proyectos</h1>
   
-  </tbody>
-</table>
+  <div class="products-grid">
+    <app-product-card 
+      *ngFor="let product of productsDB" 
+      [product]="product">
+    </app-product-card>
+  </div>
+  
+  <!-- Mensaje si no hay productos -->
+  <div *ngIf="productsDB.length === 0" class="no-products">
+    <p>No hay proyectos disponibles en este momento.</p>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-<ng-container *ngIf="!loading">
+<!-- <ng-container *ngIf="!loading">
   <p>Información detallada.</p>
   <img [src]="producto?.imageUrl" alt="Imagen del producto" class="img-title mb-3">
   <p [ngClass]="{'red': producto?.id }">
@@ -18,6 +18,113 @@
   <div class="d-flex justify-content-center mt-5">
     <div class="spinner-border text-warning" role="status">
       <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+</ng-container> -->
+
+<!-- Loading State -->
+<ng-container *ngIf="loading">
+  <div class="loading-container">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Cargando...</span>
+    </div>
+    <p class="loading-text">Cargando información del proyecto...</p>
+  </div>
+</ng-container>
+
+<!-- Error State -->
+<ng-container *ngIf="error && !loading">
+  <div class="error-container">
+    <div class="alert alert-danger" role="alert">
+      <h4 class="alert-heading">¡Oops!</h4>
+      <p>{{ error }}</p>
+      <hr>
+      <button class="btn btn-outline-danger" (click)="goBack()">
+        Volver a Proyectos
+      </button>
+    </div>
+  </div>
+</ng-container>
+
+<!-- Product Detail -->
+<ng-container *ngIf="producto && !loading && !error">
+  <div class="product-detail-container">
+    
+    <!-- Header with back button -->
+    <div class="detail-header">
+      <button class="btn btn-outline-secondary btn-back" (click)="goBack()">
+        ← Volver a Proyectos
+      </button>
+    </div>
+
+    <!-- Product Card -->
+    <div class="product-detail-card">
+      
+      <!-- Product ID Badge -->
+      <div class="product-badge">
+        <span class="badge bg-primary">#{{ producto.id }}</span>
+      </div>
+
+      <!-- Product Title -->
+      <h1 class="product-title">{{ producto.nombre | titlecase }}</h1>
+
+      <!-- Product Info Grid -->
+      <div class="product-info-grid">
+        
+        <!-- Technology Section -->
+        <div class="info-section">
+          <h3 class="section-title">
+            <i class="icon">🛠️</i>
+            Tecnología
+          </h3>
+          <div class="tech-tag">
+            {{ producto.precio }}
+          </div>
+        </div>
+
+        <!-- Description Section -->
+        <div class="info-section description-section">
+          <h3 class="section-title">
+            <i class="icon">📝</i>
+            Descripción
+          </h3>
+          <p class="description-text" *ngIf="producto.descripcion; else noDescription">
+            {{ producto.descripcion | titlecase }}
+          </p>
+          <ng-template #noDescription>
+            <p class="no-data">No hay descripción disponible</p>
+          </ng-template>
+        </div>
+
+      </div>
+
+      <!-- Additional Info (if exists) -->
+      <div class="additional-info" *ngIf="producto.urlImg">
+        
+        <!-- Image Section -->
+        <div class="image-section" *ngIf="producto.urlImg">
+          <h3 class="section-title">
+            <i class="icon">🖼️</i>
+            Imagen del Proyecto
+          </h3>
+          <img [src]="producto.urlImg" 
+               [alt]="'Imagen de ' + producto.nombre" 
+               class="product-image">
+        </div>
+
+        <!-- Salary Section -->
+        <div class="salary-section" *ngIf="producto.precio">
+          <h3 class="section-title">
+            <i class="icon">💰</i>
+            Presupuesto
+          </h3>
+          <p class="salary-amount" [ngClass]="{'low-salary': producto.precio < 22000}">
+            {{ producto.precio | currency:'EUR':'symbol':'1.0-0' }}
+          </p>
+        </div>
+
+      </div>
+
     </div>
   </div>
 </ng-container>

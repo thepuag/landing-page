@@ -22,4 +22,5 @@ export const TEXTS = {
   SUCCESS: 'Éxito',
   FORM_SUBMITTED: 'Formulario enviado correctamente',
   FORM_ERROR: 'Error al enviar el formulario',
+  TECNOLOGIES: 'Tecnologías',
 };
