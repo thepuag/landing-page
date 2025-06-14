@@ -38,10 +38,8 @@
     <div class="alert alert-danger" role="alert">
       <h4 class="alert-heading">¡Oops!</h4>
       <p>{{ error }}</p>
-      <hr>
-      <button class="btn btn-outline-danger" (click)="goBack()">
-        Volver a Proyectos
-      </button>
+      <hr />
+      <button class="btn-neon" (click)="goBack()">Volver a Proyectos</button>
     </div>
   </div>
 </ng-container>
@@ -49,17 +47,13 @@
 <!-- Product Detail -->
 <ng-container *ngIf="producto && !loading && !error">
   <div class="product-detail-container">
-    
     <!-- Header with back button -->
     <div class="detail-header">
-      <button class="btn btn-outline-secondary btn-back" (click)="goBack()">
-        ← Volver a Proyectos
-      </button>
+      <button class="btn-neon" (click)="goBack()">← Volver a Proyectos</button>
     </div>
 
     <!-- Product Card -->
     <div class="product-detail-card">
-      
       <!-- Product ID Badge -->
       <div class="product-badge">
         <span class="badge bg-primary">#{{ producto.id }}</span>
@@ -70,7 +64,6 @@
 
       <!-- Product Info Grid -->
       <div class="product-info-grid">
-        
         <!-- Technology Section -->
         <div class="info-section">
           <h3 class="section-title">
@@ -88,28 +81,31 @@
             <i class="icon">📝</i>
             Descripción
           </h3>
-          <p class="description-text" *ngIf="producto.descripcion; else noDescription">
+          <p
+            class="description-text"
+            *ngIf="producto.descripcion; else noDescription"
+          >
             {{ producto.descripcion | titlecase }}
           </p>
           <ng-template #noDescription>
             <p class="no-data">No hay descripción disponible</p>
           </ng-template>
         </div>
-
       </div>
 
       <!-- Additional Info (if exists) -->
       <div class="additional-info" *ngIf="producto.urlImg">
-        
         <!-- Image Section -->
         <div class="image-section" *ngIf="producto.urlImg">
           <h3 class="section-title">
             <i class="icon">🖼️</i>
             Imagen del Proyecto
           </h3>
-          <img [src]="producto.urlImg" 
-               [alt]="'Imagen de ' + producto.nombre" 
-               class="product-image">
+          <img
+            [src]="producto.urlImg"
+            [alt]="'Imagen de ' + producto.nombre"
+            class="product-image"
+          />
         </div>
 
         <!-- Salary Section -->
@@ -118,13 +114,14 @@
             <i class="icon">💰</i>
             Presupuesto
           </h3>
-          <p class="salary-amount" [ngClass]="{'low-salary': producto.precio < 22000}">
-            {{ producto.precio | currency:'EUR':'symbol':'1.0-0' }}
+          <p
+            class="salary-amount"
+            [ngClass]="{ 'low-salary': producto.precio < 22000 }"
+          >
+            {{ producto.precio | currency : "EUR" : "symbol" : "1.0-0" }}
           </p>
         </div>
-
       </div>
-
     </div>
   </div>
 </ng-container>

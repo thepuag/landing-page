@@ -1,0 +1,79 @@
+<div class="container">
+  <p>Agregar Componente</p>
+  <form
+    [formGroup]="formularioReactivo"
+    (ngSubmit)="enviarFormularioReactivo()"
+  >
+    <div class="mb-3">
+      <label for="nombre" class="form-label">{{ TEXTS.NAME }}</label>
+      <input
+        [ngClass]="{
+          'is-invalid': hasErrors('nombre', 'required')
+        }"
+        type="text"
+        class="form-control"
+        id="nombre"
+        formControlName="nombre"
+      />
+      <div class="text-danger" *ngIf="hasErrors('nombre', 'required')">
+        {{ TEXTS.REQUIRED_FORM }}
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="descripcion" class="form-label">{{
+        TEXTS.DESCRIPTION
+      }}</label>
+      <input
+        [ngClass]="{
+          'is-invalid':
+            hasErrors('descripcion', 'required') ||
+            hasErrors('descripcion', 'minlength')
+        }"
+        type="text"
+        class="form-control"
+        id="descripcion"
+        formControlName="descripcion"
+      />
+      <div class="text-danger" *ngIf="hasErrors('descripcion', 'required')">
+        {{ TEXTS.REQUIRED_FORM }}
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="precio" class="form-label">{{ TEXTS.PRICE }}</label>
+      <input
+        [ngClass]="{
+          'is-invalid': hasErrors('precio', 'required')
+        }"
+        type="number"
+        class="form-control"
+        id="precio"
+        formControlName="precio"
+      />
+      <div class="text-danger" *ngIf="hasErrors('precio', 'required')">
+        {{ TEXTS.REQUIRED_FORM }}
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="urlImg" class="form-label">{{ TEXTS.IMAGE_URL }}</label>
+      <input
+        [ngClass]="{
+          'is-invalid': hasErrors('urlImg', 'required')
+        }"
+        type="text"
+        class="form-control"
+        id="urlImg"
+        formControlName="urlImg"
+      />
+      <div class="text-danger" *ngIf="hasErrors('urlImg', 'required')">
+        {{ TEXTS.REQUIRED_FORM }}
+      </div>
+    </div>
+
+    <button type="submit" class="btn-neon">
+      {{ TEXTS.ADD }}
+    </button>
+  </form>
+</div>

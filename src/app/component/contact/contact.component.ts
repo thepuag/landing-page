@@ -21,7 +21,7 @@ import { DniComponent } from './dni/dni.component';
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css',
 })
-export class ContactComponent implements OnInit, OnDestroy {
+export class ContactComponent implements OnInit {
   formularioReactivo: FormGroup;
   hasError: boolean = false;
   TEXTS = TEXTS;
@@ -57,8 +57,6 @@ export class ContactComponent implements OnInit, OnDestroy {
     this.formularioReactivo.get('nombre')?.setValue(this.usuarioActivo.nombre);
     this.formularioReactivo.get('nombre')?.disable();
 
-    
-
     // AQUI TENEMOS EJEMPLO DE SUBSCRIBE
     this.formularioReactivo
       .get('tipoTelefono')
@@ -68,9 +66,9 @@ export class ContactComponent implements OnInit, OnDestroy {
       });
   }
 
-  ngOnDestroy(): void {
-    throw new Error('Method not implemented.');
-  }
+  // ngOnDestroy(): void {
+  //   throw new Error('Method not implemented.');
+  // }
 
   hasErrors(text: string, errorType: string) {
     return (

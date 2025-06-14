@@ -1,5 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
-/* Global Neon Styles */
+/* CSS Variables */
+:root {
+  --color-1: #7c9d4d;
+  --color-2: #a2b663;
+  --color-3: #c2d17b;
+  --color-4: #f2e7a1;
+  --color-5: #e1b12d;
+}
 
 * {
   margin: 0;
@@ -8,32 +14,44 @@
 }
 
 body {
-  background: linear-gradient(135deg, #021814 0%, #000000 50%, #220e01 100%);
+  background: linear-gradient(135deg, #f9fdf4 0%, #f5f9e8 50%, #fefbf0 100%);
   min-height: 100vh;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #ffffff;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #2d3a1a;
   overflow-x: hidden;
   position: relative;
 }
 
-/* Fondo con líneas neón animadas */
+/* Fondo con líneas suaves animadas */
 body::before {
-  content: '';
+  content: "";
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: 
-    radial-gradient(circle at 20% 20%, rgba(255, 0, 128, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(0, 255, 136, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 40% 60%, rgba(0, 136, 255, 0.1) 0%, transparent 50%);
+  background: radial-gradient(
+      circle at 20% 20%,
+      rgba(124, 157, 77, 0.08) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(162, 182, 99, 0.08) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 40% 60%,
+      rgba(194, 209, 123, 0.08) 0%,
+      transparent 50%
+    );
   animation: bg-shift 10s ease-in-out infinite;
   z-index: -2;
 }
 
 @keyframes bg-shift {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.3;
   }
   33% {
@@ -50,26 +68,28 @@ body::before {
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(16, 16, 16, 0.8);
+  background: rgba(249, 253, 244, 0.8);
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(45deg, #ff0080, #00ff88);
+  background: linear-gradient(45deg, var(--color-1), var(--color-2));
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(255, 0, 128, 0.5);
+  box-shadow: 0 0 10px rgba(124, 157, 77, 0.3);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(45deg, #00ff88, #0088ff);
-  box-shadow: 0 0 15px rgba(0, 255, 136, 0.7);
+  background: linear-gradient(45deg, var(--color-2), var(--color-3));
+  box-shadow: 0 0 15px rgba(162, 182, 99, 0.5);
 }
 
 /* Elementos de formulario globales */
-input, textarea, select {
-  background: rgba(16, 16, 16, 0.8);
-  border: 2px solid #0088ff;
-  color: #ffffff;
+input,
+textarea,
+select {
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid var(--color-3);
+  color: #2d3a1a;
   padding: 12px;
   border-radius: 8px;
   font-size: 16px;
@@ -77,83 +97,66 @@ input, textarea, select {
   backdrop-filter: blur(10px);
 }
 
-input:focus, textarea:focus, select:focus {
-  outline: none;
-  border-color: #00ff88;
-  box-shadow: 
-    0 0 0 3px rgba(0, 255, 136, 0.3),
-    0 0 20px rgba(0, 255, 136, 0.2);
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+.form-label {
+  color: #2d3a1a;
+  font-weight: 500;
 }
 
-input::placeholder, textarea::placeholder {
-  color: rgba(255, 255, 255, 0.6);
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--color-1);
+  box-shadow: 0 0 0 3px rgba(124, 157, 77, 0.2),
+    0 0 20px rgba(124, 157, 77, 0.1);
+  background: rgba(255, 255, 255, 1);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(45, 58, 26, 0.6);
 }
 
 /* Botones globales */
-button {
-  background: linear-gradient(45deg, #ff0080, #0088ff);
-  color: white;
-  border: none;
+.btn-neon {
   padding: 12px 24px;
   border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-weight: 600;
+  border: 2px solid var(--color-2);
   font-size: 16px;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-  position: relative;
-  overflow: hidden;
+  transition: all 0.2s ease-in-out;
+  background: rgba(255, 255, 255, 0.9);
+  color: #2d3a1a;
+  backdrop-filter: blur(10px);
+  font-weight: 500;
 }
 
-button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-  transition: left 0.5s ease;
-}
-
-button:hover {
-  background: linear-gradient(45deg, #0088ff, #00ff88);
+.btn-neon:hover {
+  background: var(--color-4);
+  border: 2px solid var(--color-1);
   transform: translateY(-2px);
-  box-shadow: 
-    0 4px 20px rgba(0, 136, 255, 0.4),
-    0 0 30px rgba(0, 255, 136, 0.3);
-}
-
-button:hover::before {
-  left: 100%;
-}
-
-button:active {
-  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(124, 157, 77, 0.3);
 }
 
 /* Links globales */
 a {
-  color: #00ff88;
+  color: var(--color-1);
   text-decoration: none;
   transition: all 0.3s ease;
   position: relative;
 }
 
 a:hover {
-  color: #ffffff;
-  text-shadow: 0 0 10px #00ff88;
+  color: var(--color-5);
 }
 
 a::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -2px;
   left: 0;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, #ff0080, #00ff88);
+  background: linear-gradient(90deg, var(--color-1), var(--color-5));
   transition: width 0.3s ease;
 }
 
@@ -162,72 +165,76 @@ a:hover::after {
 }
 
 /* Títulos globales */
-h1, h2, h3, h4, h5, h6 {
-  color: #00ff88;
-  text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #2d3a1a;
   margin-bottom: 1rem;
+  font-weight: 600;
 }
 
 /* Párrafos */
 p {
   line-height: 1.6;
-  color: #e5e7eb;
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+  color: #3a4a28;
 }
 
 /* Utilidades */
-.neon-text-pink {
-  color: #ff0080;
-  text-shadow: 0 0 10px #ff0080, 0 0 20px #ff0080;
-}
-
 .neon-text-green {
-  color: #00ff88;
-  text-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88;
+  color: var(--color-1);
+  font-weight: 600;
 }
 
-.neon-text-blue {
-  color: #0088ff;
-  text-shadow: 0 0 10px #0088ff, 0 0 20px #0088ff;
+.neon-text-yellow {
+  color: var(--color-5);
+  font-weight: 600;
 }
 
-.neon-text-orange {
-  color: #ffaa00;
-  text-shadow: 0 0 10px #ffaa00, 0 0 20px #ffaa00;
-}
-
-.neon-text-purple {
-  color: #aa00ff;
-  text-shadow: 0 0 10px #aa00ff, 0 0 20px #aa00ff;
-}
-
-.neon-border-pink {
-  border: 2px solid #ff0080;
-  box-shadow: 0 0 20px rgba(255, 0, 128, 0.3);
+.neon-text-light {
+  color: var(--color-3);
+  font-weight: 500;
 }
 
 .neon-border-green {
-  border: 2px solid #00ff88;
-  box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+  border: 2px solid var(--color-1);
+  box-shadow: 0 0 20px rgba(124, 157, 77, 0.2);
 }
 
-.neon-border-blue {
-  border: 2px solid #0088ff;
-  box-shadow: 0 0 20px rgba(0, 136, 255, 0.3);
+.neon-border-yellow {
+  border: 2px solid var(--color-5);
+  box-shadow: 0 0 20px rgba(225, 177, 45, 0.2);
+}
+
+.neon-border-light {
+  border: 2px solid var(--color-3);
+  box-shadow: 0 0 20px rgba(194, 209, 123, 0.2);
 }
 
 .neon-box {
-  background: rgba(16, 16, 16, 0.8);
+  background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(10px);
   border-radius: 12px;
   padding: 20px;
-  border: 2px solid #0088ff;
-  box-shadow: 0 0 20px rgba(0, 136, 255, 0.3);
+  border: 2px solid var(--color-3);
+  box-shadow: 0 0 20px rgba(194, 209, 123, 0.2);
+}
+
+.neon-box-accent {
+  background: rgba(242, 231, 161, 0.3);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 20px;
+  border: 2px solid var(--color-4);
+  box-shadow: 0 0 20px rgba(242, 231, 161, 0.3);
 }
 
 /* Animaciones globales */
-@keyframes pulse-neon {
-  0%, 100% {
+@keyframes pulse-green {
+  0%,
+  100% {
     opacity: 1;
   }
   50% {
@@ -235,19 +242,52 @@ p {
   }
 }
 
-.pulse-neon {
-  animation: pulse-neon 2s ease-in-out infinite;
+.pulse-green {
+  animation: pulse-green 2s ease-in-out infinite;
 }
 
-@keyframes glow-rotate {
+@keyframes glow-rotate-green {
   0% {
     filter: hue-rotate(0deg);
   }
   100% {
-    filter: hue-rotate(360deg);
+    filter: hue-rotate(60deg);
   }
 }
 
-.glow-rotate {
-  animation: glow-rotate 3s linear infinite;
+.glow-rotate-green {
+  animation: glow-rotate-green 3s linear infinite;
+}
+
+/* Clases de color */
+.color-1 {
+  color: var(--color-1);
+}
+.color-2 {
+  color: var(--color-2);
+}
+.color-3 {
+  color: var(--color-3);
+}
+.color-4 {
+  color: var(--color-4);
+}
+.color-5 {
+  color: var(--color-5);
+}
+
+.bg-color-1 {
+  background-color: var(--color-1);
+}
+.bg-color-2 {
+  background-color: var(--color-2);
+}
+.bg-color-3 {
+  background-color: var(--color-3);
+}
+.bg-color-4 {
+  background-color: var(--color-4);
+}
+.bg-color-5 {
+  background-color: var(--color-5);
 }

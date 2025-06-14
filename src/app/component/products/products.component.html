@@ -1,16 +1,15 @@
 <h1>Proyectos</h1>
-
-
+<button type="button" class="btn-neon btn-sm" routerLink="/product-add">
+  Añadir Proyecto
+</button>
 <div class="products-container">
   <h1 class="page-title">Proyectos</h1>
-  
+
   <div class="products-grid">
-    <app-product-card 
-      *ngFor="let product of productsDB" 
-      [product]="product">
+    <app-product-card *ngFor="let product of productsDB" [product]="product">
     </app-product-card>
   </div>
-  
+
   <!-- Mensaje si no hay productos -->
   <div *ngIf="productsDB.length === 0" class="no-products">
     <p>No hay proyectos disponibles en este momento.</p>

@@ -1,17 +1,3 @@
-<!-- <div class="container">
-    <p>Formulario tipo plantilla</p>
-    <form #userForm="ngForm" (ngSubmit)="enviarFormularioPlantilla()">
-      <div class="mb-3">
-        <label for="name" class="form-label">Nombre</label>
-        <input type="name" class="form-control" id="name" [(ngModel)]="user.name" [ngModelOptions]="{standalone: true}" required>
-      </div>
-      <div class="mb-3">
-        <label for="email" class="form-label">Email</label>
-        <input type="email" class="form-control" id="email" [(ngModel)]="user.email" [ngModelOptions]="{standalone: true}" required>
-      </div>
-      <button type="submit" class="btn btn-outline-success btn-sm">Enviar</button>
-    </form>
-</div> -->
 <div class="container">
   <p>Formulario tipo reactivo</p>
   <form
@@ -116,7 +102,7 @@
         {{ TEXTS.REQUIRED_FORM }}
       </div>
     </div>
-    <button type="submit" class="btn btn-outline-success btn-sm">
+    <button type="submit" class="btn-neon">
       {{ TEXTS.SEND }}
     </button>
   </form>

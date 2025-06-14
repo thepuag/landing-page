@@ -6,12 +6,14 @@
 /out-tsc
 /bazel-out
 
-# Node
+# Dependencies
 /node_modules
-npm-debug.log
-yarn-error.log
+
+# Profiling files
+chrome-profiler-events*.json
 
 # IDEs and editors
+/.idea
 .idea/
 .project
 .classpath
@@ -30,6 +32,9 @@ yarn-error.log
 
 # Miscellaneous
 /.angular/cache
+.angular/
+.ng_pkg_build/
+/.sass-cache
 .sass-cache/
 /connect.lock
 /coverage
@@ -37,6 +42,62 @@ yarn-error.log
 testem.log
 /typings
 
-# System files
+# System Files
 .DS_Store
 Thumbs.db
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.test
+
+# Node.js
+npm-debug.log
+npm-debug.log*
+yarn-error.log
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Logs
+logs
+*.log
+
+# Testing
+/coverage
+*.lcov
+
+# e2e
+/e2e/*.js
+/e2e/*.map
+
+# Build files
+*.tgz
+*.tar.gz
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Yarn Integrity file
+.yarn-integrity
+
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
+
+# Output of 'npm pack'
+*.tgz
+
+# Additional Angular specific
+.ng_pkg_build/

@@ -1,3 +1,11 @@
+:root {
+  --color-1: #7c9d4d;
+  --color-2: #a2b663;
+  --color-3: #c2d17b;
+  --color-4: #f2e7a1;
+  --color-5: #e1b12d;
+}
+
 /* Loading State */
 .loading-container {
   display: flex;
@@ -10,8 +18,9 @@
 
 .loading-text {
   margin-top: 20px;
-  color: #6c757d;
+  color: var(--color-1);
   font-size: 1.1rem;
+  font-weight: 500;
 }
 
 /* Error State */
@@ -19,6 +28,10 @@
   padding: 40px 20px;
   max-width: 600px;
   margin: 0 auto;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  border: 2px solid var(--color-3);
+  box-shadow: 0 4px 20px rgba(194, 209, 123, 0.2);
 }
 
 /* Main Container */
@@ -26,6 +39,8 @@
   max-width: 1000px;
   margin: 0 auto;
   padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
 }
 
 /* Header */
@@ -38,21 +53,27 @@
   padding: 10px 20px;
   border-radius: 8px;
   transition: all 0.2s ease;
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid var(--color-2);
+  color: #2d3a1a;
 }
 
 .btn-back:hover {
   transform: translateX(-2px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(162, 182, 99, 0.3);
+  background: var(--color-4);
+  border-color: var(--color-1);
 }
 
 /* Product Card */
 .product-detail-card {
-  background: white;
+  background: rgba(255, 255, 255, 0.95);
   border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(124, 157, 77, 0.2);
   padding: 40px;
   position: relative;
-  border: 1px solid #e9ecef;
+  border: 2px solid var(--color-3);
+  backdrop-filter: blur(10px);
 }
 
 /* Product Badge */
@@ -66,15 +87,19 @@
   font-size: 1rem;
   padding: 8px 16px;
   border-radius: 20px;
+  background: var(--color-4);
+  color: #2d3a1a;
+  border: 2px solid var(--color-5);
+  font-weight: 600;
 }
 
 /* Product Title */
 .product-title {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #2d3748;
+  color: #2d3a1a;
   margin-bottom: 40px;
-  background: linear-gradient(135deg, #007bff, #0056b3);
+  background: linear-gradient(135deg, var(--color-1), var(--color-5));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -90,19 +115,22 @@
 
 .info-section {
   padding: 20px;
-  background: #f8f9fa;
+  background: rgba(249, 253, 244, 0.8);
   border-radius: 12px;
-  border-left: 4px solid #007bff;
+  border-left: 4px solid var(--color-1);
+  box-shadow: 0 2px 10px rgba(124, 157, 77, 0.1);
 }
 
 .description-section {
   grid-column: 1 / -1;
+  background: rgba(242, 231, 161, 0.3);
+  border-left-color: var(--color-5);
 }
 
 .section-title {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #495057;
+  color: var(--color-1);
   margin-bottom: 16px;
   display: flex;
   align-items: center;
@@ -111,34 +139,40 @@
 
 .icon {
   font-size: 1.5rem;
+  color: var(--color-2);
 }
 
 .tech-tag {
-  background: linear-gradient(135deg, #e3f2fd, #bbdefb);
-  color: #1976d2;
+  background: linear-gradient(
+    135deg,
+    rgba(194, 209, 123, 0.3),
+    rgba(162, 182, 99, 0.3)
+  );
+  color: var(--color-1);
   padding: 12px 20px;
   border-radius: 25px;
   font-weight: 600;
   display: inline-block;
   font-size: 1.1rem;
+  border: 2px solid var(--color-3);
 }
 
 .description-text {
   font-size: 1.1rem;
   line-height: 1.6;
-  color: #495057;
+  color: #3a4a28;
   margin: 0;
 }
 
 .no-data {
-  color: #6c757d;
+  color: var(--color-2);
   font-style: italic;
   margin: 0;
 }
 
 /* Additional Info */
 .additional-info {
-  border-top: 1px solid #dee2e6;
+  border-top: 2px solid var(--color-3);
   padding-top: 30px;
   display: grid;
   gap: 30px;
@@ -147,9 +181,10 @@
 .image-section,
 .salary-section {
   padding: 20px;
-  background: #ffffff;
-  border: 1px solid #e9ecef;
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid var(--color-3);
   border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(194, 209, 123, 0.2);
 }
 
 .product-image {
@@ -157,18 +192,24 @@
   max-width: 400px;
   height: auto;
   border-radius: 8px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 12px rgba(124, 157, 77, 0.2);
+  border: 2px solid var(--color-4);
 }
 
 .salary-amount {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #28a745;
+  color: var(--color-1);
   margin: 0;
 }
 
 .salary-amount.low-salary {
-  color: #dc3545;
+  color: #d63384;
+}
+
+.salary-section {
+  background: rgba(242, 231, 161, 0.2);
+  border-color: var(--color-5);
 }
 
 /* Responsive Design */
@@ -176,7 +217,7 @@
   .product-info-grid {
     grid-template-columns: 1fr 2fr;
   }
-  
+
   .additional-info {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
@@ -186,21 +227,21 @@
   .product-detail-container {
     padding: 16px;
   }
-  
+
   .product-detail-card {
     padding: 24px;
   }
-  
+
   .product-title {
     font-size: 2rem;
     margin-bottom: 30px;
   }
-  
+
   .product-badge {
     top: -8px;
     right: 20px;
   }
-  
+
   .product-badge .badge {
     font-size: 0.9rem;
     padding: 6px 12px;
@@ -211,11 +252,11 @@
   .product-title {
     font-size: 1.75rem;
   }
-  
+
   .info-section {
     padding: 16px;
   }
-  
+
   .section-title {
     font-size: 1.1rem;
   }
