@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, isDevMode } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { IAppConfig } from '../models/app-config.model';
@@ -15,7 +15,14 @@ export class ConfigService {
 
   public loadConfig(): Promise<IAppConfig> {
     return new Promise((resolve, reject) => {
-      this._httpClient.get<IAppConfig>('./assets/app-config/config.json')
+
+      const isDevelopment = isDevMode();
+      const configFile = isDevelopment ? 'config.json' : 'config.prod.json';
+      const configUrl = `./app-config/${configFile}`;
+
+
+
+      this._httpClient.get<IAppConfig>(configUrl)
         .subscribe({
           next: (config) => {
             this.configSubject.next(config);
@@ -27,6 +34,11 @@ export class ConfigService {
           }
         });
     });
+  }
+
+  public isProduction(): boolean {
+    const config = this.getConfig();
+    return config ? config.environment === 'production' : !isDevMode();
   }
 
   public getConfig(): IAppConfig | null {
