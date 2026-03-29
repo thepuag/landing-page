@@ -1,11 +1,27 @@
 ## Development server
+To install npm and ng
+
+# Actualiza el sistema
+```bash
+sudo apt update && sudo apt upgrade -y
+```
+
+# Instala curl si no lo tienes
+```bash
+sudo apt install curl -y
+```
+
+# Instala Node.js 20 o 22 (LTS recomendado en 2026)
+```bash
+curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
+sudo apt install -y nodejs
+```
 
 To start a local development server, run:
 
 ```bash
 ng serve
 ```
-
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
 ## Code scaffolding
